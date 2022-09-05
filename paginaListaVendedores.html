@@ -10,9 +10,32 @@
 </head>
 <body>
 <body style="background-color: #d68438;">
+
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-sm">
+            <ul class="navbar nav">
+                <li class="nav-item">
+                    <a href="paginaBuscarRegistrar.html" class="nav-link" style="color: #000000";><strong>Página de Inicio</strong></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" style="color: #000000"><strong>Usuario</strong></a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="paginaRegistro.html">Editar información</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="paginaInicio.html">Salir</a></li>
+                    </ul>
+                  </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <hr>
+
     <div class="container">
 
-        <div class="row mt-5">
+        <div class="row">
             <h1 class="text-center" style="font-size: 40px">Buscar Producto</h1>
         </div>
 
@@ -58,37 +81,105 @@
                 
                 <div class="col-sm-6 text-center">
                     <div class="mb-3 mt-3">
-                        <button type="submit" class="btn btn-primary" style="background-color: #36846b; border: none;">Buscar</button>
+                        <button id= "buscar" type="submit" class="btn btn-primary" style="background-color: #36846b; border: none;">Buscar</button>
                     </div>
                 </div>
 
             </div>
 
 
-            <div class="row">
-                <div class="col-sm-2"></div>
 
-                <div class="col-sm-8">
-                    <div class="mb-3 mt-3">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" style="background-color: white; border: black;">
-                                <tr><th style="width: 20%;">Nombre</th><th style="width: 15%;">Producto</th><th style="width: 15%;">Unidad</th><th>Precio</th><th style="width: 50%;">Descripción</th></tr>
-                                <tr><td>Fidel Serrano</td><td>Aguacate</td><td>Kilogramo</td><td>10000</td><td>Descripción del producto</td></tr>
-                                <tr><td>Oscar Jimeno</td><td>Banano</td><td>Onza</td><td>2000</td><td>Descripción del producto</td></tr>
-                                <tr><td>Erika Peñaranda</td><td>Banano</td><td>Libra</td><td>5000</td><td>Descripción del producto</td></tr>
-                                <tr><td>Luis Pachón</td><td>Pitalla</td><td>Libra</td><td>6500</td><td>Descripción del producto</td></tr>
-                                <tr><td>Juan Pablo</td><td>Uchuva</td><td>Kilogramo</td><td>15000</td><td>Descripción del producto</td></tr>
-                            </table>
+            <div id = "cards" class="container" style="display:none;">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <img src="aguacate.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <h4 id="1-title" class="card-title">--</h4>
+                                <p id="1-body" class="card-text">--</p>
+                                <a href="paginaRegistroProducto.html" class="btn btn-primary" style="background-color: #36846b; border: none;">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <img src="aguacate.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <h4 id="1-title" class="card-title">--</h4>
+                                <p id="1-body" class="card-text">--</p>
+                                <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <img src="aguacate.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <h4 id="1-title" class="card-title">--</h4>
+                                <p id="1-body" class="card-text">--</p>
+                                <a href="#" class="btn btn-primary" style="display: none;" >Editar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <img src="aguacate.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <h4 id="1-title" class="card-title">--</h4>
+                                <p id="1-body" class="card-text">--</p>
+                                <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <img src="aguacate.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <h4 id="1-title" class="card-title">--</h4>
+                                <p id="1-body" class="card-text">--</p>
+                                <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-sm-2"></div>
+                
+        
             </div>
             
         </form>
 
     </div>
-    
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+
+        $(document).ready(iniciarEventos)
+
+        function iniciarEventos()
+        {
+            $("#buscar").click(mostrar)
+        }
+
+        function mostrar()
+        {
+            document.getElementById("cards").style.display = "block"
+
+            $("#1-title").text("Título de tarjeta")
+            $("#1-body").text("Cuerpo de tarjeta")
+
+            return false
+        }
+
+
+    </script>
+
 </body>
 </html>
