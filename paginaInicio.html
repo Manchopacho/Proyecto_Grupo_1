@@ -16,7 +16,7 @@
         <div class="row mt-5"><h1></h1></div>
 
         <div class="row mt-5">
-            <h1 class="text-center" style="font-size: 60px">Terra</h1>
+            <h1 class="text-center" style="font-size: 100px; font-family: Optima;">Terra</h1>
         </div>
 
         <form action="" class="row">
@@ -24,7 +24,7 @@
                 <div class="col-sm-3"></div>
 
                 <div class="col-sm-6">
-                    <div class="mb-3 mt-3">
+                    <div class="mb-3">
                         <label for="cedula" class="form-label"><strong>Cédula</strong></label>
                         <input type="text" id="cedula" name="cedula" class="form-control">
                     </div>
@@ -54,6 +54,15 @@
                         <button id="registrar" type="submit" class="btn btn-primary" style="background-color: #36846b; border: none;">Registrarse</button>
                     </div>
                 </div>
+
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3"></div>
+
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <p><strong id="error" ></strong></p>
+                    </div>
+                </div>
             
         </form>
 
@@ -64,13 +73,28 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script>
+
         $('#entrar').click
-        (
-            function() 
-            {
-                window.location.href = "paginaBuscarRegistrar.html";
-                return false;
-            }
+        (   
+            function verificar()
+            {   
+                const user = 1010209861
+                const pw = 1234
+
+                let usuario = document.getElementById("cedula").value
+                let clave = document.getElementById("clave").value
+
+                if(usuario == user && clave == pw)
+                {
+                    window.location.href = "paginaBuscarRegistrar.html";
+                    return false;
+                }
+                else
+                {
+                    $("#error").text("Verifique los datos ingresados")
+                    return false
+                }
+            }  
         )
 
         $('#registrar').click

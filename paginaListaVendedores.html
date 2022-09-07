@@ -87,69 +87,7 @@
 
             </div>
 
-
-
-            <div id = "cards" class="container" style="display:none;">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="card text-center">
-                            <img src="aguacate.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h4 id="1-title" class="card-title">--</h4>
-                                <p id="1-body" class="card-text">--</p>
-                                <a href="paginaRegistroProducto.html" class="btn btn-primary" style="background-color: #36846b; border: none;">Editar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm">
-                        <div class="card text-center">
-                            <img src="aguacate.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h4 id="1-title" class="card-title">--</h4>
-                                <p id="1-body" class="card-text">--</p>
-                                <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm">
-                        <div class="card text-center">
-                            <img src="aguacate.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h4 id="1-title" class="card-title">--</h4>
-                                <p id="1-body" class="card-text">--</p>
-                                <a href="#" class="btn btn-primary" style="display: none;" >Editar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm">
-                        <div class="card text-center">
-                            <img src="aguacate.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h4 id="1-title" class="card-title">--</h4>
-                                <p id="1-body" class="card-text">--</p>
-                                <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm">
-                        <div class="card text-center">
-                            <img src="aguacate.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h4 id="1-title" class="card-title">--</h4>
-                                <p id="1-body" class="card-text">--</p>
-                                <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-        
-            </div>
+            <div id="tabla" class="container" style="display: none;"><div id="cards" class="row"></div></div>
             
         </form>
 
@@ -161,23 +99,37 @@
 
     <script>
 
-        $(document).ready(iniciarEventos)
-
-        function iniciarEventos()
-        {
-            $("#buscar").click(mostrar)
-        }
+        cargarDatos()   
+        $("#buscar").click(mostrar)
 
         function mostrar()
         {
-            document.getElementById("cards").style.display = "block"
-
-            $("#1-title").text("Título de tarjeta")
-            $("#1-body").text("Cuerpo de tarjeta")
-
+            document.getElementById("tabla").style.display = "block"
             return false
         }
+        async function cargarDatos() 
+        {
+            let datos = await fetch("prueba.json")
+            let fruta = await datos.json()
+            let html = ''
+            fruta.forEach(elemento =>
+                                        {
+                                            let htmlSegment =  `<div class="col-sm">
+                                                                    <div class="card text-center">
+                                                                        <img src="aguacate.jpg" class="card-img-top">
+                                                                        <div class="card-body">
+                                                                            <h4 class="card-title">${elemento.firstName}</h4>
+                                                                            <p id="1-body" class="card-text">${elemento.email}</p>
+                                                                            <a href="#" class="btn btn-primary" style="display: none;">Editar</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>`
 
+                                            html += htmlSegment
+                                        }
+            )
+            document.getElementById("cards").innerHTML = html
+        }
 
     </script>
 
